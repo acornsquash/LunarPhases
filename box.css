@@ -1,0 +1,13 @@
+
+body {
+    height: 500px;
+    width: 250px;
+    outline: none;
+    margin: 10px;
+    border: 1px solid;
+    border-radius: 2px;
+    background-color: whitesmoke;
+    font-family: Lora;
+    color: grey;
+    text-align: center;
+}
