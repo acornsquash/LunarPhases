@@ -1,7 +1,7 @@
 
-//let now = Date.now()
+let now = Date.now()
 //let now = Date.UTC(2021, 4, 11, 18, 59) // new moon
-let now = Date.UTC(2021, 4, 13, 20, 25) // waxing crescent
+//let now = Date.UTC(2021, 4, 13, 20, 25) // waxing crescent
 //let now = Date.UTC(2021, 4, 19, 20, 25) // first quarter
 //let now = Date.UTC(2021, 4, 23, 20, 25) // waxing gibbous
 //let now = Date.UTC(2021, 4, 26, 20, 25) // full moon
@@ -50,3 +50,15 @@ function moonPic() {
 }
 
 document.getElementById("moonImg").src = moonPic()
+
+const where = document.getElementById("where") 
+
+
+navigator.geolocation.getCurrentPosition(function(position) {
+    //console.log(position);
+    where.innerHTML = "Latitude: " + position.coords.latitude.toFixed(3) +
+    "<br>Longitude: " + position.coords.longitude.toFixed(3)
+}, function(positionError) {
+    where.innerHTML = "Location Not Available"
+    console.error(positionError);
+});
