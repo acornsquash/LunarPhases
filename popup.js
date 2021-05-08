@@ -26,9 +26,39 @@ function moonPhase() {
     if(days > 23.14794077932 && days <= 28.53058770576) return "Waning Crescent"
     }
 
+function mondPhasen() {
+    
+        let newMoon = Date.UTC(2021, 2, 13, 22, 21)
+        let day = (now-newMoon)/86400000
+        let days = (day) % 29.53058770576
+        
+        if(days > 0 && days <= 1) return "Neumond"
+        if(days > 28.53058770576 && days <= 29.53058770576) return "Neumond"
+        if(days > 1 && days <= 6.38264692644001) return "Zunehmender Mond"
+        if(days > 6.38264692644001 && days <= 8.38264692644) return "Erstes Viertel Mond"
+        if(days > 8.38264692644 && days <= 13.76529385288) return "Zunehmender Mond"
+        if(days > 13.76529385288 && days <= 15.76529385288) return "Vollmond"
+        if(days > 15.76529385288 && days <= 21.14794077932) return "Abnehmender Mond"
+        if(days > 21.14794077932 && days <= 23.14794077932) return "Letztes Viertel Mond"
+        if(days > 23.14794077932 && days <= 28.53058770576) return "Abnehmender Mond"
+    }
+    
 
 let phaseDiv = document.getElementById("phase")
-phaseDiv.innerText = (moonPhase())
+document.getElementById("language").addEventListener("change", languageChange)
+function languageChange() {
+    let language = document.getElementById("language")
+    if(language.value === "english") {
+        phaseDiv.innerText = moonPhase()
+        document.getElementById("moon").innerText = "Moon"
+        document.getElementById("at").innerText = "at"
+    }
+    if(language.value === "deutsch") {
+        phaseDiv.innerText = mondPhasen()
+        document.getElementById("moon").innerText = ''
+        document.getElementById("at").innerText = "bei"
+    }
+}
 
 function moonPic() {
     switch(moonPhase()) {
