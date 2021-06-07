@@ -1,9 +1,9 @@
 {
-    "name": "Lunar Phases",
-    "description": "tbd",
+    "name": "MoonFaze",
+    "description": "just a little widget to see what's up with the moon",
     "version": "1.0",
     "manifest_version": 3,
-    "permissions": ["storage", "scripting", "geolocation"],
+    "permissions": ["storage", "scripting"],
     "action": {
         "default_popup": "popup.html",
         "default_icon": {
