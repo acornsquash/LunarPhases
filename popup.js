@@ -31,6 +31,28 @@ function mondPhasen() {
         let newMoon = Date.UTC(2021, 2, 13, 22, 21)
         let day = (now-newMoon)/86400000
         let days = (day) % 29.53058770576
+        console.log(days, "days")
+
+        // switch(days) {
+        //     case (days > 0 && days <= 1):
+        //         return "Neumnond"
+        //     case (days > 28.53058770576 && days <= 29.53058770576):
+        //         return "Neumond"
+        //     case (days > 1 && days <= 6.38264692644001):
+        //         return "Zunehmender Mond"
+        //     case (days > 6.38264692644001 && days <= 8.38264692644):
+        //         return "Erstes Viertel Mond"
+        //     case (days > 8.38264692644 && days <= 13.76529385288):
+        //         return "Zunehmender Mond"
+        //     case (days > 13.76529385288 && days <= 15.76529385288):
+        //         return "Vollmond"
+        //     case (days > 15.76529385288 && days <= 21.14794077932):
+        //         return "Abnehmender Mond"
+        //     case (days > 21.14794077932 && days <= 23.14794077932):
+        //         return "Letztes Viertel Mond"
+        //     case (days > 23.14794077932 && days <= 28.53058770576):
+        //         return "Abnehmender Mond"
+        // }
         
         if(days > 0 && days <= 1) return "Neumond"
         if(days > 28.53058770576 && days <= 29.53058770576) return "Neumond"
@@ -45,19 +67,16 @@ function mondPhasen() {
     
 
 let phaseDiv = document.getElementById("phase")
-document.getElementById("language").addEventListener("change", languageChange)
-function languageChange() {
-    let language = document.getElementById("language")
-    if(language.value === "english") {
-        phaseDiv.innerText = moonPhase()
-        document.getElementById("moon").innerText = "Moon"
-        document.getElementById("at").innerText = "at"
-    }
-    if(language.value === "deutsch") {
-        phaseDiv.innerText = mondPhasen()
-        document.getElementById("moon").innerText = ''
-        document.getElementById("at").innerText = "bei"
-    }
+phaseDiv.innerText = moonPhase()
+
+document.getElementById('en').addEventListener("click", en)
+function en() {
+    phaseDiv.innerText = moonPhase()
+}
+
+document.getElementById('de').addEventListener("click", de)
+function de() {
+    phaseDiv.innerText = mondPhasen()
 }
 
 function moonPic() {
@@ -81,14 +100,22 @@ function moonPic() {
 
 document.getElementById("moonImg").src = moonPic()
 
-const where = document.getElementById("where") 
+// const where = document.getElementById("where") 
 
 
-navigator.geolocation.getCurrentPosition(function(position) {
-    //console.log(position);
-    where.innerHTML = "Latitude: " + position.coords.latitude.toFixed(3) +
-    "<br>Longitude: " + position.coords.longitude.toFixed(3)
-}, function(positionError) {
-    where.innerHTML = "Location Not Available"
-    console.error(positionError);
-});
+// navigator.geolocation.getCurrentPosition(function(position) {
+//     //console.log(position);
+//     where.innerHTML = "Latitude: " + position.coords.latitude.toFixed(3) +
+//     "<br>Longitude: " + position.coords.longitude.toFixed(3)
+// }, function(positionError) {
+//     where.innerHTML = "Location Not Available"
+//     console.error(positionError);
+// });
+
+
+//  updates wanted: 
+
+//  1. change if statements to switch cases 
+//  2. reverse geocoding for location 
+//  3. language default is english 
+//  4. calculate zodiac (find and use API)

@@ -1,6 +1,6 @@
 
 body {
-    height: 500px;
+    height: 340px;
     width: 250px;
     outline: none;
     margin: 10px;
@@ -10,4 +10,25 @@ body {
     font-family: Lora;
     color: black;
     text-align: center;
+}
+
+button {
+    background: none;
+    border: none;
+    font-size: large;
+    font-family: Lora;
+    font-weight: 600;
+}
+
+img {
+    margin: 0px 6px 12px 6px;
+}
+
+
+#de {
+    border-left: 3px solid black;
+}
+
+#en {
+    border-right: 3px solid black;
 }
