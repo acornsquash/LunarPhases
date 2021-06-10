@@ -95,6 +95,8 @@ function moonPic() {
             return "/noun_last quarter_834873.png"
         case "Waning Crescent":
             return "/noun_waning crescent_834870.png"
+        case "New Moon":
+            return "/newMoon.png"
     }
 }
 
